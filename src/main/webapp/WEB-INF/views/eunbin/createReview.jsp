@@ -83,7 +83,7 @@
 			  <h5 class="margin20px textAlignCenter"><b>상품후기 작성</b></h5>	 
 
 	  		<form action="${contextPath }/member/saveReview" method="post" enctype="multipart/form-data">				
-			  <div class=" whiteBackground d-flex flex-column">
+			  <div style="height:90%; overflow-y:scroll" class=" whiteBackground d-flex flex-column">
 				  <div class="p-2 ">
 				  	<div class="d-flex p-3">
 
@@ -167,7 +167,7 @@
 				  	<hr style="border: 1px solid grey">
 				  	<div class="d-flex p-3  text-white alignCenter justifyContentCenter">
 					  <button type="submit" class="btn btn-primary margin20px" value="상품평쓰기">등록</button>
-					  <button type="button" class="btn btn-light margin20px">삭제</button>
+					  <button type="button" class="btn btn-light margin20px">취소</button>
 					</div>
 				  </div>
 			   </div>

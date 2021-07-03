@@ -179,6 +179,7 @@
   	      <div class="width90 p-2 marginLeftRight10px">
 	      	<hr style="border:1px solid grey">
 	      </div>		
+	      <!-- 
    	      <div class="width90 p-2 marginLeftRight10px">
 	      	<ul style="display: flex; justify-content: center;"  class="pagination">
 			  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
@@ -188,7 +189,7 @@
 			  <li class="page-item"><a class="page-link" href="#">Next</a></li>
 			</ul>
 	      </div>
-	      
+	       -->
 	     </div>
  		</div>
 	<c:import url="../default/footer.jsp"/>
