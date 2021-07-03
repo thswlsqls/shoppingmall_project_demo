@@ -29,6 +29,9 @@ public class ProductDTO {
 	    // 상품 재고 개수 
 	    private int productStockCounts;
 
+//	    // 상품 평점
+//	    private int productScore;
+	    
 	    // 상품 파일 1 
 	    private String productFile1;
 

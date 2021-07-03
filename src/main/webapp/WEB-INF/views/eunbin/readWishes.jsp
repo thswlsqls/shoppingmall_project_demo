@@ -59,6 +59,15 @@
 	.height300px{max-height:300px;}
 	.height350px{max-height:350px;}
 </style>
+<script type="text/javascript">
+	var list = [];
+	
+	$('#wishCheck input:checked').each(function(){
+		
+	})
+	
+	
+</script>
 <body >
 	<c:import url="../default/header.jsp"/>
 		<div style="display:flex"class="displayFlex greyBackground directionRow">
@@ -142,7 +151,13 @@
 							  <div class="p-2 ">수량 : ${wishDto.wishCounts } </div>
 							  <div class="p-2 ">가격 : ${wishDto.wishTotalPrice }</div>
 							</div>
-						  </div>
+							<div style="margin-left: 10px"  class="form-check">
+					  		  <input class="form-check-input" type="checkbox" value="" id="wishCheck">
+							  <label class="form-check-label" for="flexCheckDefault">
+							    상품 선택
+							  </label>
+							</div>
+						  </div>|
 					  </div>
 					  <hr style="border-bottom: 1px solid black;">
 			      </div>

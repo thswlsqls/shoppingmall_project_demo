@@ -22,6 +22,9 @@ public class MemberDTO {
 	    // 회원 주소 
 	    private String memberAddress;
 
+//	    // 회원 주소 
+//	    private String memberAddress2;
+	    
 	    // 회원 생성 날짜 
 	    private Date memberCreateDate;
 

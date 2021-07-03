@@ -18,7 +18,10 @@
 		select * from wish where buyer_idx=#{memberIdx}
 	</select>
 	
-	
+	<delete id="deleteUserWishes">
+		delete from wish where wish_id=#{wishId}	
+	</delete>
+
 </mapper>
 
 
