@@ -7,12 +7,13 @@
 
 	<resultMap id="reviews" type="com.care.root.review.dto.ReviewDTO">
 		<id property="reviewId" column="review_id"/>
-		<result property="reviewWriterId" column="review_writer_id"/>
+		<result property="reviewWriterIdx" column="review_writer_idx"/>
 		<result property="reviewTitle" column="review_title"/>
 		<result property="reviewContent" column="review_content"/>
 		<result property="productName" column="product_name"/>
+		<result property="productDegree" column="product_degree"/>
 		<result property="productScore" column="product_score"/>
-		<result property="productPostId" column="product_post_id"/>
+		<result property="productId" column="product_id"/>
 		<result property="productFile1" column="product_file_1"/>
 		<result property="productFile2" column="product_file_2"/>
 		<result property="productFile3" column="product_file_3"/>
@@ -24,19 +25,23 @@
 	
 	<insert id="reviewSave">
 		insert into review(review_id, 
-											review_writer_id, 	
+											review_writer_idx, 	
 											review_title, 
 											review_content, 	
-											product_name, 
+											product_name,
+											product_degree, 
 											product_score, 
-											product_post_id)
+											product_id,
+											product_file_1)
     	values(#{reviewId},
-    				  #{reviewWriterId},
+    				  #{reviewWriterIdx},
     				  #{reviewTitle},
     				  #{reviewContent},
     				  #{productName},
+    				  #{productDegree},
     				  #{productScore},
-    				  #{productPostId},)
+    				  #{productId},
+    				  #{productFile1})
 	</insert>
 	
 	<insert id="register">

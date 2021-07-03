@@ -47,7 +47,7 @@
   			<label for="content">
 				<b>내용</b><br>
 			</label>
-			<textarea class="form-control" rows="10" cols="50" name="content"></textarea>
+			<textarea class="form-control"  name="content" rows="10" cols="50" ></textarea>
 		</div>
 		<hr>
 		

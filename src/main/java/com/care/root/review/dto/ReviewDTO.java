@@ -7,7 +7,7 @@ public class ReviewDTO {
  private String reviewId;
 
  // 상품평 작성자 아이디 
- private String reviewWriterId;
+ private String reviewWriterIdx;
 
  // 상품평 제목 
  private String reviewTitle;
@@ -18,8 +18,8 @@ public class ReviewDTO {
  // 상품 평점 
  private int productScore;
 
- // 상품 게시글 아이디 
- private String productPostId;
+ // 상품 아이디 
+ private String productId;
 
  // 상품 등급 
  private String productDegree;
@@ -50,12 +50,12 @@ public class ReviewDTO {
      this.reviewId = reviewId;
  }
 
- public String getReviewWriterId() {
-     return reviewWriterId;
+ public String getReviewWriterIdx() {
+     return reviewWriterIdx;
  }
 
- public void setReviewWriterId(String reviewWriterId) {
-     this.reviewWriterId = reviewWriterId;
+ public void setReviewWriterIdx(String reviewWriterIdx) {
+     this.reviewWriterIdx = reviewWriterIdx;
  }
 
  public String getReviewTitle() {
@@ -82,12 +82,12 @@ public class ReviewDTO {
      this.productScore = productScore;
  }
 
- public String getProductPostId() {
-     return productPostId;
+ public String getProductId() {
+     return productId;
  }
 
- public void setProductPostId(String productPostId) {
-     this.productPostId = productPostId;
+ public void setProductId(String productId) {
+     this.productId = productId;
  }
 
  public String getProductFile1() {
@@ -150,11 +150,11 @@ public class ReviewDTO {
  public void CopyData(ReviewDTO param)
  {
      this.reviewId = param.getReviewId();
-     this.reviewWriterId = param.getReviewWriterId();
+     this.reviewWriterIdx = param.getReviewWriterIdx();
      this.reviewTitle = param.getReviewTitle();
      this.reviewContent = param.getReviewContent();
      this.productScore = param.getProductScore();
-     this.productPostId = param.getProductPostId();
+     this.productId = param.getProductId();
      this.productFile1 = param.getProductFile1();
      this.productFile2 = param.getProductFile2();
      this.productFile3 = param.getProductFile3();

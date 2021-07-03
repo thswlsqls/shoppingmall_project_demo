@@ -176,7 +176,7 @@
 				  <div class="p-2 ">수량 : ${orderDto.orderCounts }</div>
 				  <div class="p-2 ">가격 : ${orderDto.totalPrice }</div>
 				  <div class="marginTopBottom10px p-2  "><b>배송 상태 : ${deleveryStateList[status.index]}</b></div>
-				  <button onclick="location.href='${contextPath }/review/createReview'" type="button" class="btn btn-secondary width180px">
+				  <button onclick="location.href='${contextPath }/review/createReview?orderProductId=${orderDto.orderProductId}&orderProductName=${orderDto.orderProductName }'" type="button" class="btn btn-secondary width180px">
 				  	상품 후기 작성
 				  <a href="${contextPath }/review/createReview"></a>
 				  </button>

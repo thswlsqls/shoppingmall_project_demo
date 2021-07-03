@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.care.root.mybatis.product.ProductMapper">
+
+	<resultMap id="product" type="com.care.root.product.dto.ProductDTO">
+		<id property="productId" column="product_id"/>
+		<result property="productCategory" column="product_category"/>
+		<result property="productBrand" column="product_brand"/>
+		<result property="productName" column="product_name"/>
+		<result property="productPrice" column="product_price"/>
+		<result property="productDiscount" column="product_discount"/>
+		<result property="productSellerId" column="product_seller_id"/>
+		<result property="productRecommendCounts" column="product_recommend_counts"/>
+		<result property="productStockCounts" column="product_stock_counts"/>
+		<result property="productFile1" column="product_file_1"/>
+	</resultMap>
+	
+	<resultMap id="review" type="com.care.root.review.dto.ReviewDTO">
+		<id property="reviewId" column="review_id"/>
+		<result property="reviewWriterId" column="review_writer_id"/>
+		<result property="reviewTitle" column="review_title"/>
+		<result property="reviewContent" column="review_content"/>
+		<result property="productScore" column="product_score"/>
+		<result property="productPostId" column="product_post_id"/>
+		<result property="reviewDegree" column="review_degree"/>
+		<result property="productFile1" column="product_file_1"/>
+		<result property="productFile2" column="product_file_2"/>
+		<result property="productFile3" column="product_file_3"/>
+		<result property="productFile4" column="product_file_4"/>
+		<result property="productFile5" column="product_file_5"/>
+	</resultMap>
+	
+	<resultMap id="qna_q" type="com.care.root.qna.dto.QnaQDTO">
+		<id property="question_id" column="questionId"/>
+		<result property="question_writer_id" column="questionWriterId"/>
+		<result property="product_post_id" column="productPostId"/>
+		<result property="question_title" column="questionTitle"/>
+		<result property="question_content" column="questionContent"/>
+		<result property="question_create_date" column="questionCreateDate"/>
+		<result property="question_views" column="questionViews"/>
+	</resultMap>
+	
+	<resultMap id="qna_a" type="com.care.root.qna.dto.QnaADTO">
+		<id property="answer_id" column="answerId"/>
+		<result property="question_id" column="questionId"/>
+		<result property="answer_writer_id" column="answerWriterId"/>
+		<result property="answer_title" column="answerTitle"/>
+		<result property="answer_content" column="answerContent"/>
+		<result property="answer_create_date" column="answerCreateDate"/>
+		<result property="answer_views" column="answerViews"/>
+	</resultMap>
+	
+	<!-- 모든 상품 가져오기 -->
+	<select id="selectAllProductList" resultMap="product">
+		select B.* from(select rownum rn, A.* from
+(select * from product)A)B where rn between #{s} and #{e}
+	</select>
+	
+	<!-- 상품 총 개수 가져오기 -->
+	<select id="selectProductCount" resultType="Integer"> 
+		select count(*) from product
+	</select>
+	
+	<!-- 선택된 카테고리 모두 가져오기 -->
+	<select id="selectAllKategorieList" resultMap="product">
+		select B.* from(select rownum rn, A.* from
+(select * from product where product_category = #{k})A)B where rn between #{s} and #{e}
+	</select>
+	
+	<!-- 선택된 카테고리 총 개수 가져오기 -->
+	<select id="selectKategorieCount" resultType="Integer"> 
+		select count(*) from product where product_category = #{kat}
+	</select>
+	
+	<!-- 모든 상품 인기도순 가져오기 -->
+	<select id="selectRecommendAllProductList" resultMap="product">
+		select B.* from(select rownum rn, A.* from
+(select * from product order by product_recommend_counts desc)A)B where rn between #{s} and #{e}
+	</select>
+	
+	<!-- 선택된 카테고리 인기도순 가져오기 -->
+	<select id="selectRecommendAllKategorieList" resultMap="product">
+		select B.* from(select rownum rn, A.* from
+(select * from product where product_category = #{k} order by product_recommend_counts desc)A)B where rn between #{s} and #{e}
+	</select>
+	
+	<!-- 모든 상품 가격순 가져오기 -->
+	<select id="selectPriceAllProductList" resultMap="product">
+		select B.* from(select rownum rn, A.* from
+(select * from product order by product_price asc)A)B where rn between #{s} and #{e}
+	</select>
+	
+	<!-- 선택된 카테고리 가격순 가져오기 -->
+	<select id="selectPriceAllKategorieList" resultMap="product">
+		select B.* from(select rownum rn, A.* from
+(select * from product where product_category = #{k} order by product_price asc)A)B where rn between #{s} and #{e}
+	</select>
+	
+	<!-- 상품 상세 보기 -->
+	<select id="selectAllProductDetail" resultMap="product">
+		select * from product where product_id = #{p}
+	</select>
+	
+	<!-- 평점 리스트 가져오기 -->
+	<select id="selectAllReviewList" resultMap="review">
+		select * from review
+	</select>
+	
+	<!-- 추천 기능 -->
+	<update id="updateRecommendCounts">
+		update product set product_recommend_counts=product_recommend_counts+1 where product_id = #{p}
+	</update>
+	
+	<!-- 문의 리스트 가져오기 (미구현) -->
+	<select id="selectAllQnaQList" resultMap="qna_q">
+		select * from qna_q
+	</select>
+	
+	<!-- 답변 리스트 가져오기 (미구현) -->
+	<select id="selectAllQnaAList" resultMap="qna_a">
+		select * from qna_a
+	</select>
+	
+	<!-- 
+	<insert id="addQnaQ">
+		insert into qna_Q(question_id,question_writer_id,product_post_id,question_title,question_content,question_create_date)
+			values(#{w},#{w},#{w},#{c},#{c},#{t})
+	</insert>
+	 -->
+</mapper>

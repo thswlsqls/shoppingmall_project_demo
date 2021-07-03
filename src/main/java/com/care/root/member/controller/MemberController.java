@@ -1,5 +1,6 @@
 package com.care.root.member.controller;
 
+import java.io.PrintWriter;
 import java.sql.Date;
 import java.util.Calendar;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.care.root.member.dto.MemberDTO;
@@ -23,6 +25,7 @@ import com.care.root.member.service.MemberService;
 import com.care.root.member.session_name.MemberSessionName;
 import com.care.root.mileage.service.MileageService;
 import com.care.root.order.service.OrderService;
+import com.care.root.review.service.ReviewService;
 import com.care.root.wish.service.WishService;
 
 @Controller
@@ -33,6 +36,7 @@ public class MemberController implements MemberSessionName{
 	@Autowired OrderService os;
 	@Autowired WishService ws;
 	@Autowired MileageService mls;
+	@Autowired ReviewService rs;
 	
 	@GetMapping("/login")
 	public String login() {
@@ -162,10 +166,34 @@ public class MemberController implements MemberSessionName{
 		return "eunbin/readMileage";
 	}
 
-	@GetMapping("createReview")
-	public String createReview(MemberDTO dto) {
+	@GetMapping("/createReview")
+	public String createReview(MemberDTO dto, 
+															MultipartHttpServletRequest mul,
+															HttpServletRequest request,
+															HttpServletResponse response,
+															@RequestParam(name= "orderProductId", required = false) String orderProductId,
+															@RequestParam(name="orderProductName", required = false) String orderProductName
+															) throws Exception
+															{
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("orderProductId", orderProductId );														
+		session.setAttribute("orderProductName", orderProductName );
 		
 		return "eunbin/createReview";
+	}
+	
+	@PostMapping("saveReview")
+	public void saveReview(MemberDTO dto, 
+			MultipartHttpServletRequest mul,
+			HttpServletRequest request,
+			HttpServletResponse response) throws Exception{
+		
+		String message = rs.reviewSave(mul, request, "test");
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.print(message);
+		
 	}
 	
 }

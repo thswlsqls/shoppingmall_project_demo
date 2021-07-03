@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.care.root.member.dto.MemberDTO;
 import com.care.root.mybatis.wish.WishMapper;
@@ -18,7 +19,9 @@ public class WishServiceImpl implements WishService{
 	@Autowired WishMapper mapper;
 	
 	@Override
-	public void getUserWishes(Model model, HttpSession session) {
+	public void getUserWishes(Model model, 
+															HttpSession session
+															) {
 		// TODO Auto-generated method stub
 		MemberDTO dto = (MemberDTO) session.getAttribute("userSessionData");
 		String LoginUserIdx = dto.getMemberIdx();
@@ -27,5 +30,6 @@ public class WishServiceImpl implements WishService{
 		userWishList.forEach((wish)->System.out.println(wish.getWishName()));
 	
 	}
+
 
 }

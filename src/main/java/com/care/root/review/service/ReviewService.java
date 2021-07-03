@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 public interface ReviewService {
 	public String reviewSave(MultipartHttpServletRequest mul,
-			HttpServletRequest request);
+													  HttpServletRequest request,
+													  String orderProductId);
 	
 }
