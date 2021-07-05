@@ -10,8 +10,11 @@
 		<result property="productCategory" column="product_category"/>
 		<result property="productBrand" column="product_brand"/>
 		<result property="productName" column="product_name"/>
-		<result property="productPrice" column="product_price"/>
-		<result property="productDiscount" column="product_discount"/>
+		
+<!--<result property="productPrice" column="product_price"/>-->
+		<result property="productSalePrice" column="product_sale_price"/>
+		<result property="productDiscountRate" column="product_discount_rate"/>
+		
 		<result property="productSellerId" column="product_seller_id"/>
 		<result property="productRecommendCounts" column="product_recommend_counts"/>
 		<result property="productStockCounts" column="product_stock_counts"/>
@@ -20,11 +23,12 @@
 	
 	<resultMap id="review" type="com.care.root.review.dto.ReviewDTO">
 		<id property="reviewId" column="review_id"/>
-		<result property="reviewWriterId" column="review_writer_id"/>
+		<result property="reviewWriterIdx" column="review_writer_idx"/>
 		<result property="reviewTitle" column="review_title"/>
 		<result property="reviewContent" column="review_content"/>
 		<result property="productScore" column="product_score"/>
-		<result property="productPostId" column="product_post_id"/>
+		<result property="productId" column="product_id"/>
+		<result property="productName" column="product_name"/>
 		<result property="reviewDegree" column="review_degree"/>
 		<result property="productFile1" column="product_file_1"/>
 		<result property="productFile2" column="product_file_2"/>
@@ -90,13 +94,13 @@
 	<!-- 모든 상품 가격순 가져오기 -->
 	<select id="selectPriceAllProductList" resultMap="product">
 		select B.* from(select rownum rn, A.* from
-(select * from product order by product_price asc)A)B where rn between #{s} and #{e}
+(select * from product order by product_sale_price asc)A)B where rn between #{s} and #{e}
 	</select>
 	
 	<!-- 선택된 카테고리 가격순 가져오기 -->
 	<select id="selectPriceAllKategorieList" resultMap="product">
 		select B.* from(select rownum rn, A.* from
-(select * from product where product_category = #{k} order by product_price asc)A)B where rn between #{s} and #{e}
+(select * from product where product_category = #{k} order by product_sale_price asc)A)B where rn between #{s} and #{e}
 	</select>
 	
 	<!-- 상품 상세 보기 -->

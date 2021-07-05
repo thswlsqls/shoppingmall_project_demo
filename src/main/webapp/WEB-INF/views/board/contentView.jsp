@@ -16,10 +16,14 @@
 		$("#first").slideUp("fast"); $("#modal_wrap").hide();
 	}
 	function rep(){
-		let form={}; let arr = $("#frm").serializeArray();
-		for(i=0 ; i<arr.length ; i++){ form[arr[i].name] = arr[i].value }
+		let form={}; 
+		let arr = $("#frm").serializeArray();
+		for(i=0 ; i<arr.length ; i++){ 
+		form[arr[i].name] = arr[i].value }
 		$.ajax({
-			url: "addReply", type: "POST", data: JSON.stringify(form),
+			url: "addReply", 
+			type: "POST", 
+			data: JSON.stringify(form),
 			contentType: "application/json; charset=utf-8",
 			success: function(){
 				alert("성공적으로 답글이 달렸습니다"); slide_hide();
@@ -32,7 +36,8 @@
 	
 	function replyData(){
 		$.ajax({
-			url:"replyData/"+${personalData.writeNo}, type:"GET", 
+			url:"replyData/"+${personalData.writeNo}, 
+			type:"GET", 
 			dataType:"json",
 			success: function(rep){
 				let html = ""

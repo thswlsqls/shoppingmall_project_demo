@@ -31,80 +31,60 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <style type="text/css">
+* { margin: 0; }
+.content { display:flex; justify-content: center; flex-direction: row;
+			width:1200px; margin:auto; border: 1px solid #f5f5f5; color:#00264d; }
+
+/* .content ::-webkit-scrollbar-track
+	{ -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 5px; background-color: #F5F5F5; }
+.content ::-webkit-scrollbar { width: 20px; background-color: #F5F5F5; }
+.content ::-webkit-scrollbar-thumb { border-radius: 10px; 
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.5); background-color: #cce6ff; } */
+			
 	.margin20px {margin :20px;}
 	.margin10px {margin: 10px;}
-	.greyBackground {background-color: grey};
-	.displayFlex {display: flex;}
 	.directionRow{flex-direction: row;}
-	.whiteBackground {background-color: white;}
-	.blackBackground {background-color: black;}
-	.fontBold{font: bold;}
-	.fontSizeLarger{font-size: larger;}
-	.fontSizeLarge{font-size:xx-large;}
-	.marginBottom10px{margin-bottom: 20px;}
-	.textColorWhite{color: white;}
-	.width100{width: 100%;}
-	.width90{width: 90%;}
-	.width50{width: 50%;}
-	.bolderRight{border-right: 2px solid grey;}
-	.justifyContent{justify-content:space-around;}
 	.alignCenter{align-items: center;}
-	.textAlignCenter{text-align: center;}
-	.borderTopBottom{border-top: 1px solid grey; border-bottom: 1px solid grey;}
-	.floatRight{float: right;}
-	.height10{height: 10px;}
-	.height100{height:100%;}
-	.height50{height:50%;}
-	.inset0{inset:0px;}
 	.alignItemsFlexStart{align-items: flex-start;}
-	.paddingTopBottom10px{padding-top: 10px; padding-bottom: 10px;}
-	.marginTopBottom10px{margin-top: 10px; margin-bottom: 10px;}
-	.marginTop10px{margin-Top: 10px;}
-	.paddingTop10px{padding-top: 10px;}
-	.width180px{width:180px;}
+
 	.minHeight234px{min-height: 234px;}
 	.maxHeight234px{max-height: 234px;}
 	.minWidth300px{min-width: 300px;}
-	.lineHeight100p{line-height: 100%;}
-	.marginTop50p{margin-top: 50%;}
-	.displayBlock{display: block;}
+	
 	.justifyContentCenter{justify-content: center;}
-	.flex1{flex:1;}
-	.blackColor{color:black;}
-	.1pxSolidGreyBorder{border: solid grey;}
+
 	.marginLeft40px{margin-left: 40px;}
 	.marginTop100px{margin-top:100px;}
+	
 </style>
 <body >
 	<c:import url="../default/header.jsp"/>
-		<div style="display:flex"class=" justifyContentCenter displayFlex greyBackground directionRow height100">
-			<div class="width90  d-flex flex-column justifyContentCenter ">
-			  
-			  <h5 class="margin20px textAlignCenter"><b>상품후기 작성</b></h5>	 
-
+		<div class="content">
+			<div style="height:90%;" class="d-flex flex-column"><br><br>  
+				<h3 style=" text-align: center;" ><b>상품후기 작성</b></h3>	<br><hr style="color: #005cb3;">
+				
 	  		<form action="${contextPath }/member/saveReview" method="post" enctype="multipart/form-data">				
-			  <div style="height:90%; overflow-y:scroll" class=" whiteBackground d-flex flex-column">
-				  <div class="p-2 ">
+			  <div style="height:90%; /* overflow-y:scroll; */ " class="d-flex flex-column">	 
 				  	<div class="d-flex p-3">
-
-				  	<span class="margin10px blackColor">제목</span>
-				  		<input type="text"  name="title"  style="width:240px; border: 1px solid grey; padding-left:10px;"  placeholder="내용을 압력해주세요" class="form-control 1pxSolidGreyBorder">
+				  		<span style="padding-left:10px; margin-bottom: 10px; margin: 10px;"><b>제목</b></span>
+				  		<input type="text" name="title" style="width:500px; padding-left:10px;" placeholder="제목을 입력해주세요" class="form-control">
 					</div>
-				  </div>
-				  <div class="p-2 ">
+			
+			  <div class="p-2">
 				      <div class="d-flex p-3  text-white alignItemsFlexStart">
-						  <div style="position:relative; color:black" class="width50 p-2  minHeight234px maxHeight234px">
+						  <div style="position:relative; color:black; width:50%;" class="p-2 ">
 						  	<div style="height:100%;">
 					  			<img class="card-img-top minWidth300px maxHeight234px" src="<tags:url value='/resources/img/${orderProductName}.jpg'/>" alt="Card image">
 					  		</div>
 					      </div>
-						  <div style="position:relative; color:black" class="width50 p-2  marginLeft40px">
+						  <div style="margin-top:10px; position:relative; color:black; width: 50%;" class="p-2  marginLeft40px">
 						     <div class="d-flex flex-column">
-							  <div class="p-2 ">상품명 : ${orderProductName}</div>
-							  <div class="marginTop100px p-2  ">
+							  <div class="p-2"><b>상품명 : </b>&nbsp; ${orderProductName}</div>
+							  <div class="marginTop100px p-2">
 							  	<b>상품평</b>  
-							  	<select name="score" style="float:right; width:80px" class="form-select" aria-label="Default select example">
-								  	<optgroup label="평점">
+							  	<select name="score" style="float:right; width:100px; margin-right: 10px; " class="form-select" aria-label="Default select example">
+								  	<optgroup style="margin-bottom: 5px;" label="평점">
 									  <option selected value="5">5</option>
 									  <option value="4">4</option>
 									  <option value="3">3</option>
@@ -116,8 +96,7 @@
 							</div>
 						  </div>
 						  
-  						  <div style="display:flex; flex-direction:column; position:relative; color:black; height:220px; justify-content: space-between; align-items:center:" class="width50 p-2  marginLeft40px">
-  						  	
+  						  <div style="display:flex; flex-direction:column; margin-top:10px; height:220px; position:relative; color:black;  justify-content: space-between; width: 50%;" class="p-2  marginLeft40px">	  	
 							<div class="form-check margin10px">
 							  <input class="form-check-input" type="radio" name="degree"  value="좋아요"  id="flexRadioDefault1" checked>
 							  <label class="form-check-label" for="flexRadioDefault1">
@@ -135,26 +114,29 @@
 							  <label class="form-check-label" for="flexRadioDefault3">
 							    나빠요
 							  </label>
-							</div>
-							
+							</div>	
   						  </div>
   						  
 					  </div>
 				  </div>
+				  
 				  <div class="p-2 ">
-				  	<div class="form-group">
+				  	<div class="form-group" style="width: 95%; margin-left: 25px;">
 		  	  			<label for="content">
 							<b>상세 리뷰</b><br>
 						</label>
-					  <textarea class="form-control"  name="content"  rows="5" id="comment"></textarea>
+					  <textarea class="form-control"  name="content" rows="8" 
+					  id="comment" placeholder="리뷰를 작성해주세요" 
+					  style="color: gray; width:100%; "></textarea>
 					</div>
 				  </div>
+				  
 				  <div class="p-2 ">
-					<div class="custom-file">
-						<input style="width: 120px; margin-right: 80px;"" type="file" name="image_file_name" onchange="readURL(this)" id="customFile">
-						<label style="width: 180px;"  class="custom-file-label" for="customFile">사진 첨부</label>
+					<div class="custom-file" style="width: 95%; margin-left: 25px;">
+						<input style="width: 500px; margin-right: 80px;" type="file" name="image_file_name" onchange="readURL(this)" id="customFile">
+						<label style="width: 500px;"  class="custom-file-label" for="customFile">사진 첨부</label>
 						
-						<img id="preview" class="margin10px" src="#" width="80" height="80" alt="x">
+						<img id="preview" class="margin10px" src="#" width="100" alt="x">
 						<!-- 
 						<img id="preview1" class="margin10px" src="#" width="80" height="80" alt="x">
 						<img id="preview2" class="margin10px" src="#" width="80" height="80" alt="x">
@@ -163,11 +145,12 @@
 	  					 -->
 					</div> 
 				  </div>
+				  
 				  <div class="p-2 ">
-				  	<hr style="border: 1px solid grey">
+				  	<hr style="border: 1px solid #005cb3;">
 				  	<div class="d-flex p-3  text-white alignCenter justifyContentCenter">
-					  <button type="submit" class="btn btn-primary margin20px" value="상품평쓰기">등록</button>
-					  <button type="button" class="btn btn-light margin20px">취소</button>
+					  <button type="submit" class="btn btn-outline-info margin20px" style="width: 300px;" value="상품평쓰기">등록</button>
+					  <button type="button" class="btn btn-outline-secondary  margin20px" style="width: 300px;" onclick="location.href='${pageContext.request.contextPath}/member/readOrders'">취소</button>
 					</div>
 				  </div>
 			   </div>
@@ -176,5 +159,5 @@
 			</div>
  		</div>
 	<c:import url="../default/footer.jsp"/>
-</body>
+	</body>
 </html>

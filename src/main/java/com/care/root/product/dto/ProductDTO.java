@@ -16,9 +16,21 @@ public class ProductDTO {
 
 	    // 상품 가격 
 	    private int productPrice;
+	    
+	    // 상품 가격 
+	    private int productSalePrice;
+	    
+	 
+	    public int getProductSalePrice() {
+			return productSalePrice;
+		}
 
-	    // 상품 할인율 
-	    private int productDiscount;
+		public void setProductSalePrice(int productSalePrice) {
+			this.productSalePrice = productSalePrice;
+		}
+
+		// 상품 할인율 
+	    private int productDiscountRate;
 
 	    // 상품 판매자 아이디 
 	    private String productSellerId;
@@ -75,12 +87,12 @@ public class ProductDTO {
 	        this.productPrice = productPrice;
 	    }
 
-	    public int getProductDiscount() {
-	        return productDiscount;
+	    public int getProductDiscountRate() {
+	        return productDiscountRate;
 	    }
 
-	    public void setProductDiscount(int productDiscount) {
-	        this.productDiscount = productDiscount;
+	    public void setProductDiscountRate(int productDiscountRate) {
+	        this.productDiscountRate = productDiscountRate;
 	    }
 
 	    public String getProductSellerId() {
@@ -123,7 +135,7 @@ public class ProductDTO {
 	        this.productBrand = param.getProductBrand();
 	        this.productName = param.getProductName();
 	        this.productPrice = param.getProductPrice();
-	        this.productDiscount = param.getProductDiscount();
+	        this.productDiscountRate = param.getProductDiscountRate();
 	        this.productSellerId = param.getProductSellerId();
 	        this.productRecommendCounts = param.getProductRecommendCounts();
 	        this.productStockCounts = param.getProductStockCounts();

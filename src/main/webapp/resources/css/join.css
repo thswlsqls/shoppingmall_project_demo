@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+.id_input_re_1{
+		color : green;
+		display : none;
+	}
+
+.id_input_re_2{
+		color : red;
+		display : none;
+	}
+	
+
+#mail_check_input_box_false{
+	background: gray;
+	width: 500px;
+}
+#mail_check_input_box_true{
+	background: white;
+}
+
+.mail_check_button{
+	border: 1px solid black;
+	height: 30px;
+	width: 20%;
+	text-align: center;
+	margin: auto 0;
+	background-color: yellow;
+	cursor: pointer;
+}
+
+.correct{
+	color: green;
+}
+.incorrect{
+	color: red;
+}
+
+.clearfix{
+	clear: both;
+}
+
+.final_name_ck{
+	display: none;
+}
+.final_id_ck{
+	display: none;
+}
+
+.final_pw_ck{
+	display: none;
+}
+
+.final_pwd_ck{
+	display: none;
+}
+.final_ph_ck{
+	display: none;
+}
+.final_mail_ck{
+	display: none;
+}
+
+.final_addr_ck{
+	display: none;
+}
+
+

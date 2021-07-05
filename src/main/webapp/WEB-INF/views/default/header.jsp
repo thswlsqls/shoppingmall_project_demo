@@ -15,20 +15,27 @@
 .wrap {
 	width: 1000px;
 	margin: auto;
+	text-align: center;
 }
 
 .header {
 	width: 1000px;
 	background-color: white;
 }
+.header img {
+	width: 50%;
+	align-content:center;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
 
 .navdiv {
 	width: 100%;
-	background-color: black;
+	background-color: #00264d;
 }
 
 nav {
-	background-color: black;
+	background-color: #00264d;
 	width: 1000px;
 }
 
@@ -39,7 +46,7 @@ nav ul {
 }
 
 nav ul.nav-left {
-float: left;
+	float: left;
 }
 
 nav ul li {
@@ -63,7 +70,7 @@ nav ul li a:hover {
 	text-shadow: 10px 10px 15px black;
 	font-size: 70pt;
 	text-align: center;
-	margin-top: 0px;
+	margin-top: 20px;
 	padding-bottom: 20px;
 	color: black;
 	font-family: Gabriola;
@@ -85,7 +92,7 @@ a:active { color: black;}
 	<div class="wrap">
 		<div class="header">
 			<a href="${contextPath}/index">
-			<h1 class="title">CARE LAB</h1>
+			<img class="logo" src="${pageContext.request.contextPath}/resources/img/mainlogo1.jpg" width="50%" >
 			</a>
 		</div>
 	</div>
@@ -93,31 +100,11 @@ a:active { color: black;}
 		<div class="wrap">
 			<nav>
 				<ul class="nav-left">
-					<li><a href="">BEST</a></li>
-					<li><a href="">ALL</a></li>
+						<li><a href="${contextPath}/index">HOME</a></li>
+						<li><a href="${contextPath}/product/allview">ALL</a></li>
 				</ul>
 				<ul>
-					
-					<li>
-						<c:choose>
-							<c:when test="${loginUser == null}">
-								<a href="${contextPath}/member/login">Login</a>
-							</c:when>
-							<c:otherwise>
-								<a href="${contextPath}/member/logout">Logout</a>
-							</c:otherwise>
-						</c:choose>
-					</li>
-					<li>
-						<c:choose>
-							<c:when test="${loginUser == null}">
-								<a href="${contextPath}/member/readOrders">Mypage</a>
-							</c:when>
-							<c:otherwise>
-								<a href="${contextPath}/member/readOrders">Mypage</a>
-							</c:otherwise>
-						</c:choose>
-					</li>
+				<li><a href="${contextPath}/mypage/mypage">MYPAGE</a></li>	
 					<li>
 						<c:choose>
 							<c:when test="${loginUser == null}">
@@ -128,6 +115,16 @@ a:active { color: black;}
 							</c:otherwise>
 						</c:choose>
 					</li>
+					<li>
+						<c:choose>
+							<c:when test="${loginUser == null}">
+								<a href="${contextPath}/member/login">Login</a>
+							</c:when>
+							<c:otherwise>
+								<a href="${contextPath}/member/logout">Logout</a>
+							</c:otherwise>
+						</c:choose>
+					</li>
 					<li><a href="${contextPath}/Notice">Notice</a></li>
 					<li><img src="${pageContext.request.contextPath}/resources/img/search (2).png" width="30px" height="25px"></li>
 					
@@ -135,10 +132,7 @@ a:active { color: black;}
 
 			</nav>
 		</div>
-	</div>
-	
-				
-	
+	</div>	
 </body>
 </html>
 

@@ -4,4 +4,5 @@ import com.care.root.cart.dto.CartDTO;
 
 public interface CartMapper {
 	public int insertUserCart(CartDTO dto);
+	public int insertUserWishToCart(CartDTO dto);
 }

@@ -38,6 +38,15 @@ insert into product (product_id, product_seller_id, product_category, product_br
             values('546af01d1fd74bf8b8f518f210f234ee', '760e3cd7f050432282790b4f87cda83a', 'snack', '페페로니', '페페로니 진짜 오메가3 소고기 180g', 11, 5500, 4900); 
 
 
+update product set product_category = 'dog' where product_id = '24ee0193badb48f49e17096960f458ca';
+update product set product_category = 'cat' where product_id = 'de3724de59394581837c87b174a201a7';
+update product set product_category = 'dog' where product_id = '9ce20e66f53e4c08bbdeacb4844a70ad';
+update product set product_category = 'dog' where product_id = '6bea2df9c3074e1c91e0b43d8c193dd5';
+update product set product_category = 'cat' where product_id = '15cfb9f557e645678220d467c75c6038';
+update product set product_category = 'cat' where product_id = 'aefdae3eb160447c8c4bca912d0c06b7';
+update product set product_category = 'dog' where product_id = '06361df3f54c4b72aecf3b2765c78f96';
+update product set product_category = 'cat' where product_id = '546af01d1fd74bf8b8f518f210f234ee';
+
 
 CREATE INDEX IX_product_1
     ON product(product_id, product_seller_id);
@@ -47,6 +56,6 @@ CREATE UNIQUE INDEX UQ_product_1
 /
 
 drop table product;
-
 select * from product;
+
 

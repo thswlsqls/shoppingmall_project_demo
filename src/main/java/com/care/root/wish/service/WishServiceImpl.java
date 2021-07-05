@@ -2,6 +2,7 @@ package com.care.root.wish.service;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,13 @@ public class WishServiceImpl implements WishService{
 	
 	}
 
+	@Override
+	public void deleteUserWishes(String wishId, HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		System.out.println("wishService");
+		System.out.println(wishId);
+		
+		mapper.deleteUserWishes(wishId);
+	}
 
 }

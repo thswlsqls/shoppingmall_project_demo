@@ -14,146 +14,167 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <style type="text/css">
-	.margin20px {margin :20px;}
+* { margin: 0; }
+
+.content { display: flex; flex-flow: column; color:#00264d;
+		   width: 100%; margin: auto;text-align: center; flex-direction: row; }
+	
+/* menu css */
+.content .aside {
+	display: flex;
+	order: 1;
+	margin: auto;
+	width: 1200px;
+	margin-bottom: 15px;
+}
+
+.aside .menu {
+	order: 1;
+	width: 18%;
+	padding-top: 140px;
+}
+
+.aside .section {
+	order: 2;
+	width: 81%;
+	margin-left: 80px;
+	border: 1px solid #f5f5f5;
+}
+
+ul li { display: flex; }
+.menu-nav { height: 120px; width: 200px; background-color: white; }
+.p { border: 1px solid #00264d; padding-top: 8px; }
+.content a { color: grey; }
+.content a:hover { color: #00264d; }
+
+/* Mileage css */
+.mileagebox { overflow-y: scroll; height: 550px;  width: 100%;
+			background: white; padding-top: 10px;}
+
+			/* scrollbar 관련 css*/
+.content ::-webkit-scrollbar-track
+	{ -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 5px; background-color: #F5F5F5; }
+.content ::-webkit-scrollbar { width: 20px; background-color: #F5F5F5; }
+.content ::-webkit-scrollbar-thumb { border-radius: 10px; 
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.5); background-color: #F5F5F5; }
+	
 	.margin10px {margin: 10px;}
-	.greyBackground {background-color: grey};
-	.displayFlex {display: flex;}
-	.directionRow{flex-direction: row;}
-	.whiteBackground {background-color: white;}
-	.blackBackground {background-color: black;}
-	.fontBold{font: bold;}
-	.fontSizeLarger{font-size: larger;}
-	.fontSizeLarge{font-size:xx-large;}
-	.marginBottom10px{margin-bottom: 20px;}
 	.textColorWhite{color: white;}
 	.width100{width: 100%;}
 	.width90{width: 90%;}
-	.width50{width: 50%;}
-	.bolderRight{border-right: 2px solid grey;}
-	.justifyContent{justify-content:space-around;}
-	.justifyContentCenter{justify-content: center;}
-	.alignCenter{align-items: center;}
-	.textAlignCenter{text-align: center;}
-	.borderTopBottom{border-top: 1px solid grey; border-bottom: 1px solid grey;}
-	.floatRight{float: right;}
-	.height10{height: 10px;}
-	.height100{height:100%;}
-	.height50{height:50%;}
-	.inset0{inset:0px;}
 	.alignItemsFlexStart{align-items: flex-start;}
-	.paddingTopBottom10px{padding-top: 10px; padding-bottom: 10px;}
-	.marginTopBottom10px{margin-top: 10px; margin-bottom: 10px;}
-	.marginTop10px{margin-Top: 10px;}
-	.paddingTop10px{padding-top: 10px;}
-	.width180px{width:180px;}
-	.minHeight234px{min-height: 234px;}
-	.maxHeight234px{max-height: 234px;}
-	.minWidth300px{min-width: 300px;}
-	.lineHeight100p{line-height: 100%;}
-	.marginTop50p{margin-top: 50%;}
-	.displayBlock{display: block;}
-	.alignItemStretch{align-items: stretch;}
 	.marginLeftRight10px{margin-left: 10px; margin-right: 10px}
 	.overflowY{overflow-y :scroll;}
 	.overflowX{overflow-x :scroll;}
-	.height250px{max-height:250px;}
-	.height300px{max-height:300px;}
-	.height350px{max-height:350px;}
-	.height400px{max-height:400px;}
- 
-</style>
+	.height500px{max-height:500px;}
+
+ </style>
 <body >
 	<c:import url="../default/header.jsp"/>
-		<div style="display:flex"class="displayFlex greyBackground directionRow">
-		 <div>
-		  <ul class="nav flex-column greyBackground">
-		    <li class="nav-item margin20px">
-		    	<div style="height: 120px; width:240px; background-color:white;">
-		      		<a class="height100 alignCenter nav-link" href="${contextPath }/member/readOrders">
-			      		<div class="height100 d-flex flex-column ">
-					  		<div class="lineHeight100p height50 p-2  textAlignCenter marginTop10px">
-					  			<b class="fontSizeLarger">Order</b>
-					  		</div>
-					  		<div class="lineHeight100p height50 p-2  textAlignCenter ">
-					  			주문 조회
-					  		</div>
-						</div> 
-		      		</a> 
-		        </div>
-		    </li>
-		    <li class="nav-item margin20px">
-		    	<div style="height: 120px; width:240px; background-color:white">
-		      		<a class="height100 alignCenter nav-link" href="#">
-			      		<div class="height100 d-flex flex-column height100">
-					  		<div class="lineHeight100p height50 p-2  textAlignCenter marginTop10px"><b class="fontSizeLarger">Profile</b></div>
-					  		<div class="lineHeight100p height50 p-2  textAlignCenter ">회원 정보</div>
-						</div> 
-		      		</a>    
-		        </div>
-		    </li>
-		    <li class="nav-item margin20px">
-		    	<div style="height: 120px; width:240px; background-color:white">
-		      		<a class="height100 alignCenter nav-link" href="${contextPath }/member/readWishes">
-			      		<div class="height100 d-flex flex-column ">
-					  		<div class="lineHeight100p height50 p-2  textAlignCenter marginTop10px"><b class="fontSizeLarger">Wishlist</b></div>
-					  		<div class="lineHeight100p height50 p-2  textAlignCenter ">관심 상품</div>
-						</div> 
-		      		</a>   
-		        </div>
-		    </li>
-		    <li class="nav-item margin20px">
-		    	<div style="height: 120px; width:240px; background-color:white">
-		      		<a class="height100 alignCenter nav-link" href="${contextPath }/member/readMileage">
-			      		<div class="height100 d-flex flex-column ">
-					  		<div class="lineHeight100p height50 p-2  textAlignCenter marginTop10px"><b class="fontSizeLarger">Mileage</b></div>
-					  		<div class="lineHeight100p height50 p-2  textAlignCenter ">적립금</div>
-						</div> 
-		      		</a>    
-		        </div>
-		    </li>
-		    <li class="nav-item margin20px">
-		    	<div style="height: 120px; width:240px; background-color:white">
-		      		<a class="height100 alignCenter nav-link" href="#">
-			      		<div class="height100 d-flex flex-column ">
-					  		<div class="lineHeight100p height50 p-2  textAlignCenter marginTop10px"><b class="fontSizeLarger">My board</b></div>
-					  		<div class="lineHeight100p height50 p-2  textAlignCenter ">게시물 관리</div>
-						</div> 
-		      		</a>    
-		        </div>
-		    </li>
-		  </ul>
-		 </div>
-	     <div class="width100 whiteBackground d-flex flex-column mb-3 margin20px ">
-	      <div class="width90 p-2 margin10px fontBold fontSizeLarge marginBottom10px ">MLIEAGE</div>
-	      <div class="width90 p-2 margin10px margin10px">
-		      <div class="d-flex p-3 bg-secondary text-white alignItemsFlexStart">
-			      <div style="color:black" class="width50 p-2   ">
-				     <div class="d-flex flex-column  ">
-					  <div class="p-2 ">• 총 적립금 : ${UserTotalMileageCount }</div>
-					  <div class="p-2 ">• 사용된 적립금 : ${usedMileageCount }</div>
-					  <div class="p-2 ">• 환불예정 적립금 : ${refundExpectedMileageCount }</div>
+	<div class="content">
+
+		<!-- menu -->
+		<div class="aside">
+			<div class="menu">
+				<ul>
+					<li>
+						<div class="menu-nav">
+							<a class="nav-link" href="${contextPath }/member/readOrders">
+								<div class="p">
+									<div class="p-2">
+										<b>Order</b>
+									</div>
+									<div class="p-2">주문 조회</div>
+								</div>
+							</a>
+						</div>
+					</li>
+					<li>
+						<div class="menu-nav">
+							<a class="nav-link" href="${contextPath}/member/profile">
+								<div class="p">
+									<div class="p-2">
+										<b>Profile</b>
+									</div>
+									<div class="p-2">회원 정보</div>
+								</div>
+							</a>
+						</div>
+					</li>
+					<li>
+						<div class="menu-nav">
+							<a class="nav-link" href="${contextPath }/member/readWishes">
+								<div class="p">
+									<div class="p-2">
+										<b>Wishlist</b>
+									</div>
+									<div class="p-2">관심 상품</div>
+								</div>
+							</a>
+						</div>
+					</li>
+					<li>
+						<div class="menu-nav">
+							<a class="nav-link" href="${contextPath }/member/readMileage">
+								<div class="p">
+									<div class="p-2">
+										<b>Mileage</b>
+									</div>
+									<div class="p-2">적립금</div>
+								</div>
+							</a>
+						</div>
+					</li>
+					<li>
+						<div class="menu-nav">
+							<a class="nav-link" href="#">
+								<div class="p">
+									<div class="p-2">
+										<b>My board</b>
+									</div>
+									<div class="p-2">게시물 관리</div>
+								</div>
+							</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		
+		<!-- Mileage  -->
+	    <div class="section">
+			<br><br>
+			<h3>M L I E A G E</h3><br><hr>
+			<div class="mlieagebox">
+	      
+		      <div class="d-flex p-3 alignItemsFlexStart" style="background: #b3e0ff; ">
+			      <div style="width: 48%; text-align:left; border-right: 1px dashed ; color: #00264d; " class="p-2">
+				     <div>
+					  <div class="p-2 "><b>• 총 적립금 : </b> ${UserTotalMileageCount }</div>
+					  <div class="p-2 "><b>• 사용된 적립금 : </b> ${usedMileageCount }</div>
+					  <div class="p-2 "><b>• 환불예정 적립금 : </b> ${refundExpectedMileageCount }</div>
 					</div>
 				  </div>
-				  <div style="color:black" class="width50 p-2   ">
-				     <div class="d-flex   flex-column">
-					  <div class="p-2 ">• 사용가능 적립금 : ${usableMileageCount }</div>
-					  <div class="p-2 ">• 미가용 적립금 : ${unusedMileageCount }</div>
+				  <div style="width: 48%; margin-left:10px; text-align:left; color: #00264d;"  class="p-2">
+				     <div>
+					  <div class="p-2 "><b>• 사용가능 적립금 : </b>${usableMileageCount }</div>
+					  <div class="p-2 "><b>• 미가용 적립금 : </b>${unusedMileageCount }</div>
 					</div>
 				  </div>
 			  </div>
-		  </div>
-	      <div class="width90 p-2 width90 textColorWhite margin10px">
-	      	<button type="button" class="btn btn-secondary margin10px">적립내역 보기</button>
-	      	<button type="button" class="btn btn-secondary margin10px">미가용 적립내역 보기</button>
+		  <hr style="border-style: dashed ;">
+	      <div class=" p-2" style="text-align: left;">
+	      	<button type="button" class="btn btn-outline-secondary" style="width: 200px; margin-left: 18px;">적립내역 보기</button>
+	      	<button type="button" class="btn btn-outline-secondary" style="width: 200px;">미가용 적립내역 보기</button>
 	      </div>
-	      <div class="width90 p-2 margin10px margin10px height250px overflowY overflowX">
-			  <table class="table width90">
-			    <thead>
+	      <div class="p-2  height500px overflowY" style="height: 100%; margin: 17px;">
+			  <table class="table width100">
+			    <thead style="background:#f5f5f5; ">
 			      <tr>
 			        <th>주문날짜</th>
 			        <th>적립금</th>
 			        <th>주문번호</th>
-	   		        <th >내용</th>
+	   		        <th>내용</th>
 			      </tr>
 			    </thead>
 			    <tbody>	    
@@ -177,7 +198,7 @@
 			  </table>
 		  </div>
   	      <div class="width90 p-2 marginLeftRight10px">
-	      	<hr style="border:1px solid grey">
+	      	<hr style="border-style: dashed ;">
 	      </div>		
 	      <!-- 
    	      <div class="width90 p-2 marginLeftRight10px">
@@ -191,7 +212,11 @@
 	      </div>
 	       -->
 	     </div>
+	     </div>
+	     
  		</div>
+ 		
+ 	</div>	
 	<c:import url="../default/footer.jsp"/>
 </body>
 </html>

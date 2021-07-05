@@ -20,7 +20,7 @@ public interface ProductMapper {
 	public ArrayList<ProductDTO> selectPriceAllProductList(@Param("s") int start, @Param("e") int end); // 모든 상품 가격순 가져오기
 	public ArrayList<ProductDTO> selectPriceAllKategorieList(@Param("k") String kat, @Param("s") int start, @Param("e") int end); // 카테고리 가격순 가져오기
 	public ProductDTO selectAllProductDetail(@Param("p") String productId); // 상품 상세 보기
-	public ReviewDTO selectAllReviewList(); // 상품 상세보기 창에서 평점들 출력
+	public ArrayList<ReviewDTO> selectAllReviewList(); // 상품 상세보기 창에서 평점들 출력
 	public void updateRecommendCounts(@Param("p") String productId); // 추천 기능
 	public ArrayList<QnaQDTO> selectAllQnaQList(); // 문의 리스트 출력 (미구현)
 	public ArrayList<QnaADTO> selectAllQnaAList(); // 답변 리스트 출력 (미구현)
